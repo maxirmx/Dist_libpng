@@ -1,0 +1,38 @@
+environment:
+  global:
+    VisualStudio: '"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC"'
+    Libpng_repo: "http://github.com/glennrp/libpng-releases"
+
+platform:
+  - x86
+  # amd64
+
+init:
+  - '%VisualStudio%\vcvarsall.bat %platform%'
+
+install:
+  # Get libpng source from GIT
+  - appveyor DownloadFile %Libpng_repo%/raw/master/lpng1623.7z
+  - 7z x lpng1623.7z
+  - mkdir zlib
+  - cd zlib
+  - appveyor DownloadFile "http://ci.appveyor.com/api/projects/maxirmx/Dist-zlib/artifacts/zlib.7z?job=platform:+x86"
+  - 7z e zlib.7z
+  - cd ..
+   
+build_script:                                                                                   
+  # Build
+  - echo %platform%
+  - cd lpng1623   
+  - nmake -f scripts/makefile.vcwin32
+  
+test: off
+
+#artifacts:
+   # path: zlib\zlib.lib
+   # path: zlib\zlib1.dll
+   # path: zlib\zdll.lib
+   # path: zlib\zlib.h
+
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help
