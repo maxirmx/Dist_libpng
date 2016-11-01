@@ -5,7 +5,7 @@ environment:
 
 platform:
   - x86
-  # amd64
+  - amd64
 
 init:
   - '%VisualStudio%\vcvarsall.bat %platform%'
