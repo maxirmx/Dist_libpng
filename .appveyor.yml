@@ -25,14 +25,18 @@ build_script:
   - echo %platform%
   - cd lpng1623   
   - nmake -f scripts/makefile.vcwin32
-  
+  - cd ..
+  - mkdir d
+  - mkdir d\include
+  - mkdir d\lib
+  - copy lpng1623\png.h d\include
+  - copy lpng1623\pngconf.h d\include
+  - copy lpng1623\pnginfo.h d\include
+  - copy lpng1623\libpng.lib d\lib
+  - cd d
+  - 7z a -r -y ..\libpng.7z *.*
+   
 test: off
 
-#artifacts:
-   # path: zlib\zlib.lib
-   # path: zlib\zlib1.dll
-   # path: zlib\zdll.lib
-   # path: zlib\zlib.h
-
-Contact GitHub API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Status Help
+artifacts:
+   - path: libpng.7z
