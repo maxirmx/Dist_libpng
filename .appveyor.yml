@@ -16,7 +16,7 @@ install:
   - 7z x lpng1634.7z
   - mkdir zlib
   - cd zlib
-  - appveyor DownloadFile "http://ci.appveyor.com/api/projects/maxirmx/Dist-zlib/artifacts/zlib.7z?job=platform:+x86"
+  - appveyor DownloadFile "http://www.samsonov.net/wp/assets/Dist_zlib/%platform%-release/zlib.7z"
   - 7z e zlib.7z
   - cd ..
    
