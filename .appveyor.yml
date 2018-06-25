@@ -13,7 +13,7 @@ init:
 install:
   # Get libpng source from GIT
   - appveyor DownloadFile %Libpng_repo%/raw/master/lpng1634.7z
-  - 7z x lpng1628.7z
+  - 7z x lpng1634.7z
   - mkdir zlib
   - cd zlib
   - appveyor DownloadFile "http://ci.appveyor.com/api/projects/maxirmx/Dist-zlib/artifacts/zlib.7z?job=platform:+x86"
