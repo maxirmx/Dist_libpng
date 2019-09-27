@@ -41,6 +41,9 @@ build_script:
    
 test: off
 
+artifacts:
+   - path: libpng.7z
+   
 deploy:
   provider: FTP
   protocol: ftp
