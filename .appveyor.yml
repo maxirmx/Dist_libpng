@@ -3,6 +3,10 @@ environment:
     VisualStudio: '"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC"'
     Libpng_repo: "http://github.com/glennrp/libpng-releases"
 
+matrix:
+  - configuration: release
+  - configuration: debug
+  
 platform:
   - x86
   - amd64
