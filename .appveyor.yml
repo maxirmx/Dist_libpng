@@ -48,7 +48,7 @@ deploy:
   provider: FTP
   protocol: ftp
   host: ftp.samsonov.net
-  username: samsonov
+  username: samsonov_libpng
   password:
-     secure: pMjE6BHQCeAlZMq459Btrg==
-  folder: /www/htdocs/wp/assets/Dist_libpng/%platform%-%configuration%
+    secure: jlUfmuUVjcfpNlQvkatL2A==
+  folder: ./%platform%-%configuration%
