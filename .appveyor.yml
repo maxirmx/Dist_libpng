@@ -25,14 +25,13 @@ install:
    
 build_script:                                                                                   
   # Build
-  - echo %platform%
   - cd lpng1634   
   - nmake -f scripts/makefile.vcwin32
   - cd ..
   - mkdir d
   - mkdir d\include
   - mkdir d\lib
-  - copy scripts\pnglibconf.h.prebuilt  d\include\pnglibconf.h
+  - copy lpng1634\scripts\pnglibconf.h.prebuilt  d\include\pnglibconf.h
   - copy lpng1634\png.h d\include
   - copy lpng1634\pngconf.h d\include
   - copy lpng1634\pnginfo.h d\include
