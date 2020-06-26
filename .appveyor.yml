@@ -20,7 +20,7 @@ install:
   - mkdir zlib
   - cd zlib
   - appveyor DownloadFile https://github.com/maxirmx/Dist_zlib/releases/latest/download/zlib-%platform%-%configuration%.7z
-  - 7z e zlib.7z
+  - 7z e zlib-%platform%-%configuration%.7z
   - cd ..
    
 build_script:                                                                                   
