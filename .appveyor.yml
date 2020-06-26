@@ -19,7 +19,7 @@ install:
   - 7z x lpng1634.7z
   - mkdir zlib
   - cd zlib
-  - appveyor DownloadFile "http://www.samsonov.net/wp/assets/Dist_zlib/%platform%-release/zlib.7z"
+  - appveyor DownloadFile https://github.com/maxirmx/Dist_zlib/releases/latest/download/zlib-%platform%-%configuration%.7z
   - 7z e zlib.7z
   - cd ..
    
@@ -37,18 +37,22 @@ build_script:
   - copy lpng1634\pnginfo.h d\include
   - copy lpng1634\libpng.lib d\lib
   - cd d
-  - 7z a -r -y ..\libpng.7z *.*
+  - 7z a -r -y ..\libpng-%platform%-%configuration%.7z *.*
    
 test: off
 
 artifacts:
-   - path: libpng.7z
+   - path: libpng-%platform%-%configuration%.7z
    
 deploy:
-  provider: FTP
-  protocol: ftp
-  host: ftp.samsonov.net
-  username: samsonov_libpng
-  password:
-    secure: jlUfmuUVjcfpNlQvkatL2A==
-  folder: ./%platform%-%configuration%
+deploy:
+- provider: GitHub
+  release: $(appveyor_build_version)
+  description: 'libpng build [$(appveyor_build_version)]'
+  auth_token:
+    secure: 7fz/vsEpOOUyPYNmrykrY4lgqu3XQsag6g4x25nOwtd2dM2kc3X3GPoPzMCMDno/
+  draft: false
+  prerelease: false
+  on:
+    branch: master                 # release from master branch only
+    APPVEYOR_REPO_TAG: false       # deploy on tag push only
