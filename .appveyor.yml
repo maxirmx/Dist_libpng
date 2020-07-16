@@ -19,8 +19,8 @@ install:
   - 7z x lpng1634.7z
   - mkdir zlib
   - cd zlib
-  - appveyor DownloadFile https://github.com/maxirmx/Dist_zlib/releases/latest/download/zlib-%platform%-%configuration%.7z
-  - 7z e zlib-%platform%-%configuration%.7z
+  - appveyor DownloadFile https://github.com/maxirmx/Dist_zlib/releases/latest/download/zlib-%platform%-%configuration%.zip
+  - 7z e -tzip zlib-%platform%-%configuration%.zip
   - cd ..
    
 build_script:                                                                                   
@@ -37,12 +37,12 @@ build_script:
   - copy lpng1634\pnginfo.h d\include
   - copy lpng1634\libpng.lib d\lib
   - cd d
-  - 7z a -r -y ..\libpng-%platform%-%configuration%.7z *.*
+  - 7z a -tzip -r -y ..\libpng-%platform%-%configuration%.zip *.*
    
 test: off
 
 artifacts:
-   - path: libpng-%platform%-%configuration%.7z
+   - path: libpng-%platform%-%configuration%.zip
    
 deploy:
 - provider: GitHub
