@@ -47,7 +47,7 @@ artifacts:
 deploy:
 - provider: GitHub
 # I am tagging through github
-# Tag format is v<major version>.<minor version>, shall be consistent with major.monir of Appveyor build
+# Tag format is v<major version>.<minor version>, shall be consistent with major.minor of Appveyor build
 # release: v$(appveyor_build_version)
   description: 'libpng AppVeyor build script [$(appveyor_build_version)] with binaries'
   auth_token:
