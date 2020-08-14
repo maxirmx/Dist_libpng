@@ -25,6 +25,7 @@ install:
   
 build_script:                                                                                   
   # Build
+  - dir zlib
   - cd libpng   
   - nmake -f scripts/makefile.vcwin32
   - cd ..
