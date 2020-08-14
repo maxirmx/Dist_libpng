@@ -17,12 +17,8 @@ init:
 install:
   # Get libpng source from GIT
   - git clone -q --branch=%libpng_version" %libpng_repo% libpng
-  - mkdir zlib
-  - cd zlib
-  - appveyor DownloadFile https://github.com/maxirmx/Dist_zlib/releases/latest/download/zlib-%platform%-%configuration%.zip
-  - 7z e -tzip zlib-%platform%-%configuration%.zip
-  - cd ..
-   
+  - ps: ./EZTools/load-library.ps1 "Zlib"   $env:platform $env:configuration
+  
 build_script:                                                                                   
   # Build
   - cd libpng   

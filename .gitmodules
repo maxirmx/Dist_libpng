@@ -1,0 +1,3 @@
+[submodule "EZTools"]
+	path = EZTools
+	url = https://github.com/maxirmx/EZTools.git
