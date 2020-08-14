@@ -17,7 +17,7 @@ init:
 install:
   # Get libpng source from GIT
   - git clone -q --branch=%libpng_version% %libpng_repo% libpng
-  - ps: ./EZTools/load-library.ps1 "Zlib"   $env:platform $env:configuration
+  - ps: ./EZTools/load-library.ps1 "Zlib" $env:platform $env:configuration
   
 build_script:                                                                                   
   # Build
