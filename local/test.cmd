@@ -9,7 +9,9 @@ rem --------------------------------------------------------------------
 
 cd ..
 SET libpng_repo="https://github.com/glennrp/libpng"
-IF NOT EXIST libpng (git clone -q --branch=master %libpng_repo% libpng)
+SET libpng_version="v1.6.37"
+
+IF NOT EXIST libpng (git clone -q --branch=%libpng_version" %libpng_repo% libpng)
 rem cmd.exe /c build.cmd %1 %2                                                                             
 cd local
 

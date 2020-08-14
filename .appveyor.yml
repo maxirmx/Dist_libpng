@@ -1,7 +1,8 @@
 environment:
   global:
     VisualStudio: '"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC"'
-    Libpng_repo: "http://github.com/glennrp/libpng-releases"
+    libpng_repo: "https://github.com/glennrp/libpng"
+    libpng_version: "v1.6.37"
   matrix:
   - configuration: release
   - configuration: debug
@@ -15,8 +16,7 @@ init:
 
 install:
   # Get libpng source from GIT
-  - appveyor DownloadFile %Libpng_repo%/raw/master/lpng1634.7z
-  - 7z x lpng1634.7z
+  - git clone -q --branch=%libpng_version" %libpng_repo% libpng
   - mkdir zlib
   - cd zlib
   - appveyor DownloadFile https://github.com/maxirmx/Dist_zlib/releases/latest/download/zlib-%platform%-%configuration%.zip
@@ -25,17 +25,17 @@ install:
    
 build_script:                                                                                   
   # Build
-  - cd lpng1634   
+  - cd libpng   
   - nmake -f scripts/makefile.vcwin32
   - cd ..
   - mkdir d
   - mkdir d\include
   - mkdir d\lib
-  - copy lpng1634\scripts\pnglibconf.h.prebuilt  d\include\pnglibconf.h
-  - copy lpng1634\png.h d\include
-  - copy lpng1634\pngconf.h d\include
-  - copy lpng1634\pnginfo.h d\include
-  - copy lpng1634\libpng.lib d\lib
+  - copy libpng\scripts\pnglibconf.h.prebuilt  d\include\pnglibconf.h
+  - copy libpng\png.h d\include
+  - copy libpng\pngconf.h d\include
+  - copy libpng\pnginfo.h d\include
+  - copy libpng\libpng.lib d\lib
   - cd d
   - 7z a -tzip -r -y ..\libpng-%platform%-%configuration%.zip *.*
    
