@@ -15,6 +15,9 @@ init:
   - '%VisualStudio%\vcvarsall.bat %platform%'
 
 install:
+  # Submodules
+  - git submodule init
+  - git submodule update
   # Get libpng source from GIT
   - git clone -q --branch=%libpng_version% %libpng_repo% libpng
   - ps: ./EZTools/load-library.ps1 "Zlib" $env:platform $env:configuration
