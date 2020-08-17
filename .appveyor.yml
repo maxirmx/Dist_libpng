@@ -25,9 +25,7 @@ install:
   
 build_script:                                                                                   
   # Build
-  - cd libpng   
-  - nmake -f scripts/makefile.vcwin32
-  - cd ..
+  - build.cmd %1 %2   
   - mkdir d
   - mkdir d\include
   - mkdir d\lib

@@ -14,14 +14,8 @@ SET libpng_version="v1.6.37"
 IF NOT EXIST libpng (git clone -q --branch=%libpng_version% %libpng_repo% libpng)
 IF NOT EXIST zllib  powershell -ExecutionPolicy Bypass %~dp0\..\EZTools\load-library.ps1 zlib %1 %2
 
-cd libpng
-dir ..\zlib\include
-SET INCLUDE=..\zlib\include;%INCLUDE%
-SET LIB=..\zlib\lib;%LIB%
-nmake -f scripts/makefile.vcwin32
-cd ..
+build.cmd %1 %2
 
-rem cmd.exe /c build.cmd %1 %2                                                                             
 cd local
 
 
