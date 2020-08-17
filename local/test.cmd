@@ -12,9 +12,9 @@ SET libpng_repo="https://github.com/glennrp/libpng"
 SET libpng_version="v1.6.37"
 
 IF NOT EXIST libpng (git clone -q --branch=%libpng_version% %libpng_repo% libpng)
-IF NOT EXIST zllib  powershell -ExecutionPolicy Bypass %~dp0\..\EZTools\load-library.ps1 zlib %1 %2
+IF NOT EXIST zlib  powershell -ExecutionPolicy Bypass %~dp0\..\EZTools\load-library.ps1 zlib %1 %2
 
-build.cmd %1 %2
+cmd /c build.cmd %1 %2
 
 cd local
 

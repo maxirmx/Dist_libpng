@@ -26,6 +26,8 @@ install:
 build_script:                                                                                   
   # Build
   - build.cmd %platform% %configuration%   
+
+after_build:
   - mkdir d
   - mkdir d\include
   - mkdir d\lib

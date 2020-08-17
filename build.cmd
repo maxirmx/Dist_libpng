@@ -38,7 +38,7 @@ cd libpng
 
 SET INCLUDE=..\zlib\include;%INCLUDE%
 SET LIB=..\zlib\lib;%LIB%
-nmake -f scripts\makefile.vcwin32
+nmake -f scripts\makefile.vcwin32 all
 
 cd ..
 
