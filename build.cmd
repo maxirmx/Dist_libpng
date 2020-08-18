@@ -1,25 +1,9 @@
 @echo off
 rem --------------------------------------------------------------------
 rem A script to generate NMake command line and execute it 
-rem Usage build.cmd <platform> <configuration>
-rem        platform: either 'amd64' or 'X64' or 'x86'
+rem Usage build.cmd <configuration>
 rem        configuration: either 'debug' or 'release'
 rem --------------------------------------------------------------------
-
-IF "%1"=="x86" (
-rem  echo Building for x86 
-) ELSE (
-IF "%1"=="X64" (
-rem  echo Building for X64 aka amd64 
-) ELSE (
-IF "%1"=="amd64" (
-rem  echo Building for X64 aka amd64
-) ELSE (
-  echo Platform "%1" was not recognized
-  exit -1 
-)
-)
-)
 
 
 IF "%2"=="release" (

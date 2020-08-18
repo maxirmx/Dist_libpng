@@ -15,7 +15,7 @@ SET libpng_version="v1.6.37"
 IF NOT EXIST libpng (git clone -q --branch=%libpng_version% %libpng_repo% libpng)
 IF NOT EXIST zlib  powershell -ExecutionPolicy Bypass %~dp0\..\EZTools\load-library.ps1 zlib %1 %2
 
-cmd /c build.cmd %1 %2
+cmd /c build.cmd %2
 
 cd local
 
