@@ -36,6 +36,7 @@ after_build:
   - copy libpng\pngconf.h d\include
   - copy libpng\pnginfo.h d\include
   - copy libpng\libpng.lib d\lib
+  - copy libpng\libpng.pdb d\lib
   - cd d
   - 7z a -tzip -r -y ..\libpng-%platform%-%configuration%.zip *.*
    

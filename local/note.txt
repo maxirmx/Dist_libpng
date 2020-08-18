@@ -1,0 +1,7 @@
+rem --------------------------------------------------------------------
+rem It woudl be nice to do it professionally :)
+rem But ...   makefile nicely refers ..\zlib\xlib.lib
+rem --------------------------------------------------------------------
+
+copy zlib\lib\*.*  zlib
+

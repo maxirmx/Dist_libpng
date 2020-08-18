@@ -7,13 +7,13 @@ rem        configuration: either 'debug' or 'release'
 rem --------------------------------------------------------------------
 
 IF "%1"=="x86" (
-  SET NMake_options=OBJA="inffas32.obj match686.obj"
+rem  echo Building for x86 
 ) ELSE (
 IF "%1"=="X64" (
-  SET NMake_options=AS=ml64 OBJA="inffasx64.obj gvmat64.obj inffas8664.obj"
+rem  echo Building for X64 aka amd64 
 ) ELSE (
 IF "%1"=="amd64" (
-  SET NMake_options=AS=ml64 OBJA="inffasx64.obj gvmat64.obj inffas8664.obj"
+rem  echo Building for X64 aka amd64
 ) ELSE (
   echo Platform "%1" was not recognized
   exit -1 
@@ -21,24 +21,34 @@ IF "%1"=="amd64" (
 )
 )
 
+
 IF "%2"=="release" (
-  SET NMake_options=%NMake_options% LOC="-DASMV -DASMINF -I. -MD"
+rem  echo Building release 
+  SET CFLAGS=-nologo -D_CRT_SECURE_NO_DEPRECATE -D_CRT_SECURE_NO_WARNINGS -MD -O2 -W3 -Zi -Fd"libpng"
 ) ELSE (
 IF "%2"=="debug" (
-  SET NMake_options=%NMake_options% LOC="-DASMV -DASMINF -MDd -I. -Od"
+rem  echo Building debug
+  SET CFLAGS=-nologo -D_CRT_SECURE_NO_DEPRECATE -D_CRT_SECURE_NO_WARNINGS -MDd -Od -W3 -Zi -Fd"libpng"
 ) ELSE (
   echo Configuration "%2" was not recognized
   exit -1 
 )
 )
 
-@echo on
-
-cd libpng
-
 SET INCLUDE=..\zlib\include;%INCLUDE%
 SET LIB=..\zlib\lib;%LIB%
-nmake -f scripts\makefile.vcwin32 all
 
+echo CFLAGS:  ^<%CFLAGS%^>
+echo INCLUDE: ^<%INCLUDE%^>
+echo LIB:     ^<%LIB%^>
+
+rem --------------------------------------------------------------------
+rem nmake -e Causes environment variables to override makefile macro definitions.
+rem          (CFLAGS) 
+rem --------------------------------------------------------------------
+
+@echo on
+cd libpng
+nmake -e -f scripts\makefile.vcwin32 libpng.lib
 cd ..
 
