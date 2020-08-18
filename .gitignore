@@ -1,4 +1,4 @@
 # Do not track build artifacts
-zlib/*
-libpng/*
+zlib/
+libpng/
 
