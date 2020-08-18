@@ -6,15 +6,15 @@ rem        configuration: either 'debug' or 'release'
 rem --------------------------------------------------------------------
 
 
-IF "%2"=="release" (
+IF "%1"=="release" (
 rem  echo Building release 
   SET CFLAGS=-nologo -D_CRT_SECURE_NO_DEPRECATE -D_CRT_SECURE_NO_WARNINGS -MD -O2 -W3 -Zi -Fd"libpng"
 ) ELSE (
-IF "%2"=="debug" (
+IF "%1"=="debug" (
 rem  echo Building debug
   SET CFLAGS=-nologo -D_CRT_SECURE_NO_DEPRECATE -D_CRT_SECURE_NO_WARNINGS -MDd -Od -W3 -Zi -Fd"libpng"
 ) ELSE (
-  echo Configuration "%2" was not recognized
+  echo Configuration "%1" was not recognized
   exit -1 
 )
 )
