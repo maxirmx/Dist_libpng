@@ -17,6 +17,6 @@ IF NOT EXIST zlib  powershell -ExecutionPolicy Bypass %~dp0\..\EZTools\load-libr
 
 cmd /c build.cmd %2
 
-cd local
+cd cd %~dp0
 
 
