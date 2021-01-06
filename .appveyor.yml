@@ -25,7 +25,7 @@ install:
   
 build_script:                                                                                   
   # Build
-  - build.cmd %configuration%   
+  - ps: ./build-libpng.ps1 $env:platform $env:configuration
 
 after_build:
   - mkdir d
