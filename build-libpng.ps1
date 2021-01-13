@@ -43,7 +43,7 @@ Param (
 
  $dname = Get-Location
 
- $bp =  @("-e", "-x -",
+ $bp =  @("-e", "-x-",
           "-f", "scripts\makefile.vcwin32",  
           "libpng.lib") 
 
